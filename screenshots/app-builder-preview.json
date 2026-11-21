@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Synesthesia",
+      "hasCanvas": false,
+      "bodyTextLen": 45,
+      "bodyTextHash": "daf58c6ed7e3a7f049cd9450ad8d2be5816bcc6c8809a4af9c78d1ff9c47402b",
+      "bodyTextPrefix": "FOR BOB Synesthesia Sound, made visible. Skip",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Synesthesia",
+      "hasCanvas": false,
+      "bodyTextLen": 45,
+      "bodyTextHash": "daf58c6ed7e3a7f049cd9450ad8d2be5816bcc6c8809a4af9c78d1ff9c47402b",
+      "bodyTextPrefix": "FOR BOB Synesthesia Sound, made visible. Skip",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}

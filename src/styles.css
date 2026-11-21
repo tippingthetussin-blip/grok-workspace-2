@@ -1,0 +1,168 @@
+@import "tailwindcss";
+@import "@fontsource/lexend/latin-400.css";
+@import "@fontsource/lexend/latin-500.css";
+@import "@fontsource/lexend/latin-600.css";
+@import "@fontsource/lexend/latin-700.css";
+@import "@fontsource/fraunces/latin-600.css";
+@import "@fontsource/fraunces/latin-700.css";
+
+@theme {
+  --font-sans: "Lexend", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --color-bg: #f3eee4;
+  --color-ink: #1a1612;
+  --color-muted: #5c5348;
+  --color-surface: #fffdf8;
+  --color-accent: #7f3618;
+  --color-accent-ink: #fff7f2;
+  --color-line: #e0d6c6;
+  --color-lane: #efe6d8;
+  --radius-lg: 1.25rem;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color-scheme: light;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@keyframes boot-bar {
+  0%,
+  100% {
+    transform: scaleY(0.4);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.boot-bar {
+  transform-origin: center bottom;
+  animation: boot-bar 900ms ease-in-out infinite;
+}
+
+.boot-bar:nth-child(2) {
+  animation-delay: 80ms;
+}
+.boot-bar:nth-child(3) {
+  animation-delay: 160ms;
+}
+.boot-bar:nth-child(4) {
+  animation-delay: 240ms;
+}
+.boot-bar:nth-child(5) {
+  animation-delay: 120ms;
+}
+.boot-bar:nth-child(6) {
+  animation-delay: 200ms;
+}
+.boot-bar:nth-child(7) {
+  animation-delay: 40ms;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+.rise {
+  animation: rise 480ms cubic-bezier(0.2, 0, 0, 1) both;
+}
+
+.d1 {
+  animation-delay: 70ms;
+}
+.d2 {
+  animation-delay: 150ms;
+}
+.d3 {
+  animation-delay: 230ms;
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.72);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: none;
+  }
+}
+
+.pop-in {
+  animation: pop-in 520ms cubic-bezier(0.2, 0, 0, 1) both;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(1.18);
+    opacity: 0;
+  }
+}
+
+.pulse-ring {
+  animation: pulse-ring 1.4s ease-out infinite;
+}
+
+.reader {
+  overscroll-behavior-y: contain;
+}
+
+.pb-safe {
+  padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boot-bar,
+  .rise,
+  .pop-in,
+  .pulse-ring {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}

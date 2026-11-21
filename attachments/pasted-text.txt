@@ -1,0 +1,32 @@
+Act as a senior full-stack web developer and UI/UX architect. Build the complete source code and project structure for a mobile-first Progressive Web App (PWA) named "Synesthesia", optimized specifically for Android Chrome browsers.
+Core Purpose:
+Synesthesia is a real-time, multi-device live transcription group chat web app built for a user with sudden acute hearing loss (Bob) so he can follow group conversations effortlessly—seeing who is speaking, when voices overlap, and feeling who is talking via custom phone vibrations.
+
+1. Personalized Onboarding & Animations (For Bob, by his son Brian)
+
+• Startup Boot Animation: Open with a smooth, welcoming boot animation displaying the title Synesthesia.
+• Personal Touch for Bob: The home screen and menus must use large, high-contrast, easy-to-read typography. Warmly welcome Bob and subtly show that this app was custom-built for him by his son, Brian (e.g., "Welcome, Bob. Built for you by your son, Brian, so you never miss a word."). Include clear, step-by-step buttons guiding him to start a room.
+• Room Creation Animation ("Soncake"): Right after Bob creates a room and gets his invite code, trigger a tasteful pop-up animation defining synesthesia—explaining it as a sensory phenomenon (sometimes associated with psychedelic experiences) where senses overlap, like "seeing sounds" or "tasting colors." Have the nickname "Soncake" briefly animate and pop up inside this sequence before transitioning into the live chat room.
+
+2. Gold-Standard Live Transcription & Two-Sided Room System
+
+• 4-Character Room Code: Bob (the Host) creates a private room and gets a simple 4-character alphanumeric code. Friends and family join from their Android browsers using that code and their Bluetooth earbuds or phone mics.
+• Gold-Standard Transcription Engine (Deepgram Nova-2): Do NOT rely solely on basic browser Web Speech API, as it cuts off and lacks punctuation. Instead, integrate Deepgram's real-time streaming WebSocket API (Nova-2 model)—which offers a generous free-tier credit and delivers Google Live Transcribe–level accuracy, instant punctuation, and background-noise filtering—with an automatic fallback to the browser's SpeechRecognition API (continuous: true, interimResults: true) if no API key is entered.
+• Two-Sided Interface:
+	• Participant Side (Speakers): Clean "Tap to Speak / Mute" screen streaming live transcribed text packets to the room.
+	• Host Side (Bob): High-visibility reader display, plus an optional microphone toggle so Bob can speak into his own phone and have his words logged into the conversation timeline for full context.
+
+3. Atomic Clock Sync & Horizontal Timeline Column UI
+
+• Atomic Clock Synchronization: Sync every connected device's clock offset against a free public time/NTP endpoint (or server-side atomic timestamping) so every text packet carries a true synchronized timestamp with zero clock drift.
+• Timeline & Multi-Column Layout: On Bob's screen, display a horizontal time-scale ruler across the top (showing a rolling 5-to-10-second window). Give each speaker their own dedicated vertical column where their transcribed words flow across from left to right aligned with the top time ruler. This lets Bob visually see who started speaking first, when people talk at the same time, and how the conversation flows.
+
+4. Custom Haptic Feedback (Android Vibration API)
+
+• Assign a distinct, customizable vibration pattern using the browser's navigator.vibrate() API to each speaker in the room (e.g., Speaker 1: [100, 80, 100] double short buzz; Speaker 2: [450] one long buzz; Speaker 3: [80, 60, 80, 60, 80] triple quick buzz).
+• When a speaker starts talking, trigger their specific haptic pattern on Bob's Android phone so he can physically feel who is speaking. Include a "Test Haptics" button in Bob's settings.
+
+5. Free-Tier Backend & Clean GitHub-Ready Structure
+
+• Free-Tier Architecture: Build the frontend in clean HTML5, CSS (Tailwind via CDN), and modular JavaScript, paired with a lightweight Node.js + Socket.io relay server (ready for 1-click free hosting on Render or Glitch, or using Firebase Realtime Database's free Spark tier so zero server maintenance is needed).
+• GitHub Push Readiness: Output the complete folder tree, a clean .gitignore (excluding node_modules and .env), a README.md with clear setup steps, and exact terminal commands using GitHub CLI (gh auth login) or a Personal Access Token so the project pushes cleanly to GitHub on the first try without authentication or file-size errors.
